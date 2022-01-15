@@ -9,15 +9,7 @@ package BE.Admin;
  *
  * @author Madluke
  */
-<<<<<<< HEAD:src/BE/Admin/LihatTeacher.java
-public interface LihatTeacher {
-    public void LihatTeacher();
-=======
-public class ProjectOOP {
 
-    public static void main(String[] args) {
-        System.out.println("nabil");
-    }
->>>>>>> 3cc3fcb0da031261a3c84020d6118f56ad50d4f1:src/marquiz/ProjectOOP.java
-    
+public interface LihatTeacher {
+    public void LihatTeacher(); 
 }
