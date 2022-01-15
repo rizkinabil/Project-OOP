@@ -24,6 +24,9 @@ public class Nilai {
         this.Nilai = Nilai;
     }
     
+    public void review(){
+        
+    }
     
     
     

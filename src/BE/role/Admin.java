@@ -11,19 +11,19 @@ package BE.role;
  */
 public class Admin extends User{
     private int IdAdmin;
+    private User admin;
     private String Nama, Username, Password, SecQuestion, SecAnswer;
-
-    public Admin(int IdAdmin, String Nama, String Username, String Password, String SecQuestion, String SecAnswer, String Role) {
+    
+    public Admin(int IdAdmin, User admin, String Nama, String Username, String Password, String SecQuestion, String SecAnswer, String Role) {
         super(Role);
         this.IdAdmin = IdAdmin;
+        this.admin = admin;
         this.Nama = Nama;
         this.Username = Username;
         this.Password = Password;
         this.SecQuestion = SecQuestion;
         this.SecAnswer = SecAnswer;
     }
-    
-    
 
     public int getIdAdmin() {
         return IdAdmin;
@@ -31,6 +31,14 @@ public class Admin extends User{
 
     public void setIdAdmin(int IdAdmin) {
         this.IdAdmin = IdAdmin;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 
     public String getNama() {

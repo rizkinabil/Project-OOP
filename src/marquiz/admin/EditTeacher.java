@@ -39,7 +39,7 @@ public class EditTeacher extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        IdTeacher = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,9 +69,14 @@ public class EditTeacher extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
-        jTextField1.setText("jTextField1");
+        IdTeacher.setText("jTextField1");
 
         jButton3.setText("Cari");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +106,7 @@ public class EditTeacher extends javax.swing.JFrame {
                                     .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(44, 44, 44)
                                         .addComponent(jButton3)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -115,7 +120,7 @@ public class EditTeacher extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,6 +150,14 @@ public class EditTeacher extends javax.swing.JFrame {
         page.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String Id_T = IdTeacher.getText();
+        int int_id = Integer.parseInt(Id_T);
+        
+  
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +198,7 @@ public class EditTeacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IdTeacher;
     private javax.swing.JTextField fieldSoal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -195,7 +209,6 @@ public class EditTeacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField opsi_1;
     // End of variables declaration//GEN-END:variables
 }

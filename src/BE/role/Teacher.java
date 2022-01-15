@@ -5,17 +5,20 @@
  */
 package BE.role;
 
+import BE.Admin.AdminHome;
 /**
  *
  * @author Madluke
  */
 public class Teacher extends User{
     private int IdTeacher;
+    private User teacher;
     private String Nama, Username, Password;
 
-    public Teacher(int IdTeacher, String Nama, String Username, String Password, String Role) {
+    public Teacher(int IdTeacher, User teacher, String Nama, String Username, String Password, String Role) {
         super(Role);
         this.IdTeacher = IdTeacher;
+        this.teacher = teacher;
         this.Nama = Nama;
         this.Username = Username;
         this.Password = Password;
@@ -28,6 +31,14 @@ public class Teacher extends User{
 
     public void setIdTeacher(int IdTeacher) {
         this.IdTeacher = IdTeacher;
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
     }
 
     public String getNama() {
@@ -53,6 +64,7 @@ public class Teacher extends User{
     public void setPassword(String Password) {
         this.Password = Password;
     }
+
     
     
     

@@ -1,4 +1,4 @@
-package BE.Teacher;
+    package BE.Teacher;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -51,6 +51,18 @@ public class TeacherHome implements LihatSoal, LihatTestTaker{
 
     public void setEmailTest(String EmailTest) {
         this.EmailTest = EmailTest;
+    }
+    
+    public void TambahSoal(){
+        
+    }
+    
+    public void EditSoal(){
+        
+    }
+    
+    public void HapusSoal(){
+        
     }
     
     public void LihatSoal(){
