@@ -5,7 +5,11 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+<<<<<<< HEAD
 import marquiz.UserView;
+=======
+import marquiz.index;
+>>>>>>> nabil
 
 
 /**
@@ -139,8 +143,13 @@ public class openingScreen extends javax.swing.JFrame {
     
     private void process(){
         this.dispose();
+<<<<<<< HEAD
         UserView page = new UserView();
 //        page.setExtendedState(page.MAXIMIZED_BOTH);
+=======
+        index page = new index();
+        page.setExtendedState(page.MAXIMIZED_BOTH);
+>>>>>>> nabil
         page.setVisible(true);
     }
     
