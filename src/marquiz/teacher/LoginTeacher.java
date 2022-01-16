@@ -5,7 +5,7 @@
  */
 package marquiz.teacher;
 
-import marquiz.UserView;
+import marquiz.userHome;
 
 /**
  *
@@ -18,6 +18,7 @@ public class LoginTeacher extends javax.swing.JFrame {
      */
     public LoginTeacher() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -47,9 +48,14 @@ public class LoginTeacher extends javax.swing.JFrame {
 
         passwordField.setText("jPasswordField1");
 
-        jLabel3.setText("Admin Login Page");
+        jLabel3.setText("Login Teacher");
 
         loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
 
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -109,11 +115,18 @@ public class LoginTeacher extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        UserView page = new UserView();
-        page.setExtendedState(page.MAXIMIZED_BOTH);
+        userHome page = new userHome();
+//        page.setExtendedState(page.MAXIMIZED_BOTH);
         page.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        // TODO add your handling code here:
+        teacherHome page = new teacherHome();
+        page.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
      * @param args the command line arguments

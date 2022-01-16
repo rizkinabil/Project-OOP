@@ -5,17 +5,23 @@
  */
 package marquiz.teacher;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import marquiz.userHome;
+
 /**
  *
  * @author Madluke
  */
 public class teacherHome extends javax.swing.JFrame {
+  public static int open = 0;
 
     /**
      * Creates new form teacherHome
      */
     public teacherHome() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,62 +33,62 @@ public class teacherHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnTambahSoal = new javax.swing.JButton();
+        btnEditSoal = new javax.swing.JButton();
+        btnDelSoal = new javax.swing.JButton();
+        btnListSoal = new javax.swing.JButton();
+        btnListTestTaker = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("tambah soal");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTambahSoal.setText("tambah soal");
+        btnTambahSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTambahSoalActionPerformed(evt);
             }
         });
 
-        jButton2.setText("edit soal");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditSoal.setText("update soal");
+        btnEditSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEditSoalActionPerformed(evt);
             }
         });
 
-        jButton3.setText("hapus soal");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelSoal.setText("hapus soal");
+        btnDelSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDelSoalActionPerformed(evt);
             }
         });
 
-        jButton4.setText("lihat semua soal");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnListSoal.setText("lihat semua soal");
+        btnListSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnListSoalActionPerformed(evt);
             }
         });
 
-        jButton5.setText("lihat test taker");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnListTestTaker.setText("lihat test taker");
+        btnListTestTaker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnListTestTakerActionPerformed(evt);
             }
         });
 
-        jButton6.setText("keluar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSignOut.setText("keluar");
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSignOutActionPerformed(evt);
             }
         });
 
-        jButton7.setText("kembali");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnKembali.setText("kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnKembaliActionPerformed(evt);
             }
         });
 
@@ -93,86 +99,119 @@ public class teacherHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnTambahSoal)
+                    .addComponent(btnEditSoal)
+                    .addComponent(btnDelSoal)
+                    .addComponent(btnListSoal)
+                    .addComponent(btnListTestTaker))
                 .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addComponent(btnKembali)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(btnSignOut)
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jButton1)
+                .addComponent(btnTambahSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnEditSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnDelSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(btnListSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(btnListTestTaker)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(btnSignOut)
+                    .addComponent(btnKembali))
                 .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        TambahSoal page = new TambahSoal();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnTambahSoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahSoalActionPerformed
+        if (open == 0){
+            new TambahSoal().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnTambahSoalActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        EditSoal page = new EditSoal();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnEditSoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSoalActionPerformed
+        if (open == 0){
+            new EditSoal().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnEditSoalActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        HapusSoal page = new HapusSoal();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnDelSoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelSoalActionPerformed
+        if (open == 0){
+            new HapusSoal().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnDelSoalActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnListSoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListSoalActionPerformed
         // TODO add your handling code here:
-        listSoal page = new listSoal();
-        page.setVisible(true);
+        if (open == 0){
+            new listSoal().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnListSoalActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnListTestTakerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListTestTakerActionPerformed
         // TODO add your handling code here:
-        ListTestTaker page = new ListTestTaker();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        if (open == 0){
+            new ListTestTaker().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnListTestTakerActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
         LoginTeacher page = new LoginTeacher();
         page.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnKembaliActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
-        teacherHome frame = new teacherHome();
-        frame.setDefaultCloseOperation(teacherHome.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+        JFrame jf = new JFrame();
+        jf.setAlwaysOnTop(true);
+        int response;
+        response = JOptionPane.showConfirmDialog(jf, "Do you really want to Logout?", "Select", JOptionPane.YES_NO_OPTION);
+        if(response == JOptionPane.YES_OPTION){
+            userHome page = new userHome();
+            page.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,12 +249,12 @@ public class teacherHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btnDelSoal;
+    private javax.swing.JButton btnEditSoal;
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnListSoal;
+    private javax.swing.JButton btnListTestTaker;
+    private javax.swing.JButton btnSignOut;
+    private javax.swing.JButton btnTambahSoal;
     // End of variables declaration//GEN-END:variables
 }

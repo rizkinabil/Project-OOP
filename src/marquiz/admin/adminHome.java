@@ -5,17 +5,23 @@
  */
 package marquiz.admin;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import marquiz.userHome;
+
 /**
  *
  * @author Madluke
  */
 public class adminHome extends javax.swing.JFrame {
+  public static int open = 0;
 
     /**
      * Creates new form adminHome
      */
     public adminHome() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,54 +33,62 @@ public class adminHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnAddT = new javax.swing.JButton();
+        btnEditT = new javax.swing.JButton();
+        btnDelT = new javax.swing.JButton();
+        btnPengT = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
+        btnLihatT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("tambah teacher");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddT.setText("tambah teacher");
+        btnAddT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddTActionPerformed(evt);
             }
         });
 
-        jButton2.setText("edit teacher");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditT.setText("edit teacher");
+        btnEditT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEditTActionPerformed(evt);
             }
         });
 
-        jButton3.setText("hapus teacher");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelT.setText("hapus teacher");
+        btnDelT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDelTActionPerformed(evt);
             }
         });
 
-        jButton4.setText("pengaturan");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnPengT.setText("pengaturan");
+        btnPengT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnPengTActionPerformed(evt);
             }
         });
 
-        jButton5.setText("kembali");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnKembali.setText("kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnKembaliActionPerformed(evt);
             }
         });
 
-        jButton6.setText("keluar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSignOut.setText("keluar");
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSignOutActionPerformed(evt);
+            }
+        });
+
+        btnLihatT.setText("lihat teacher");
+        btnLihatT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLihatTActionPerformed(evt);
             }
         });
 
@@ -87,75 +101,121 @@ public class adminHome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(jButton1))
+                            .addComponent(btnEditT)
+                            .addComponent(btnDelT)
+                            .addComponent(btnPengT)
+                            .addComponent(btnLihatT)
+                            .addComponent(btnAddT))
                         .addGap(152, 152, 152))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(btnKembali)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
+                        .addComponent(btnSignOut)
                         .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jButton1)
+                .addComponent(btnAddT)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnEditT)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(btnDelT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLihatT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btnPengT)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(btnKembali)
+                    .addComponent(btnSignOut))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
         LoginAdmin page = new LoginAdmin();
         page.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnKembaliActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
-        adminHome frame = new adminHome();
-        frame.setDefaultCloseOperation(adminHome.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+        JFrame jf = new JFrame();
+        jf.setAlwaysOnTop(true);
+        int response;
+        response = JOptionPane.showConfirmDialog(jf, "Do you really want to Logout?", "Select", JOptionPane.YES_NO_OPTION);
+        if(response == JOptionPane.YES_OPTION){
+            userHome page = new userHome();
+            page.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        TambahTeacher page = new TambahTeacher();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnAddTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTActionPerformed
+        // TODO add your handling code here:       
+        if (open == 0){
+            new TambahTeacher().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+      
+    }//GEN-LAST:event_btnAddTActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEditTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTActionPerformed
         // TODO add your handling code here:
-        EditTeacher page = new EditTeacher();
-        page.setVisible(true);
+        if (open == 0){
+            new EditTeacher().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEditTActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDelTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelTActionPerformed
         // TODO add your handling code here:
-        HapusTeacher page = new HapusTeacher();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        if (open == 0){
+            new HapusTeacher().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnDelTActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnPengTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPengTActionPerformed
         // TODO add your handling code here:
-        Pengaturan page = new Pengaturan();
-        page.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        if (open == 0){
+            new Pengaturan().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnPengTActionPerformed
+
+    private void btnLihatTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatTActionPerformed
+        // TODO add your handling code here:
+        if (open == 0){
+            new listTeacher().setVisible(true);
+            open = 1;
+        }else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "Form yang lain masih dibuka");
+        }
+    }//GEN-LAST:event_btnLihatTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,11 +253,12 @@ public class adminHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnAddT;
+    private javax.swing.JButton btnDelT;
+    private javax.swing.JButton btnEditT;
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnLihatT;
+    private javax.swing.JButton btnPengT;
+    private javax.swing.JButton btnSignOut;
     // End of variables declaration//GEN-END:variables
 }

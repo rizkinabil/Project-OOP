@@ -16,6 +16,7 @@ public class loginAdmin extends javax.swing.JFrame {
      */
     public loginAdmin() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

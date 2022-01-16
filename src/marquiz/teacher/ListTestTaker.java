@@ -16,6 +16,7 @@ public class ListTestTaker extends javax.swing.JFrame {
      */
     public ListTestTaker() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -97,9 +98,8 @@ public class ListTestTaker extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        teacherHome page = new teacherHome();
-        page.setVisible(true);
-        this.dispose();
+        teacherHome.open=0;
+        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

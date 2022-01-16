@@ -16,6 +16,7 @@ public class QuizPage extends javax.swing.JFrame {
      */
     public QuizPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

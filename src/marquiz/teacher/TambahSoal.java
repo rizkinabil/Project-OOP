@@ -5,6 +5,8 @@
  */
 package marquiz.teacher;
 
+import BE.Teacher.TeacherHome;
+
 /**
  *
  * @author Madluke
@@ -16,6 +18,7 @@ public class TambahSoal extends javax.swing.JFrame {
      */
     public TambahSoal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -157,9 +160,8 @@ public class TambahSoal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        teacherHome page = new teacherHome();
-        page.setVisible(true);
-        this.dispose();
+        teacherHome.open=0;
+        setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

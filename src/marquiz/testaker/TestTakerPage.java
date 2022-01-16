@@ -18,6 +18,7 @@ public class TestTakerPage extends javax.swing.JFrame {
      */
     public TestTakerPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

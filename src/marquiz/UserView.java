@@ -19,6 +19,7 @@ public class UserView extends javax.swing.JFrame {
      */
     public UserView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -83,7 +84,7 @@ public class UserView extends javax.swing.JFrame {
 
     private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
         // TODO add your handling code here:
-        LoginAdmin page = new LoginAdmin();
+        userHome page = new userHome();
         page.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_adminBtnActionPerformed

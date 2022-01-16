@@ -16,6 +16,7 @@ public class TestInstruction extends javax.swing.JFrame {
      */
     public TestInstruction() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
