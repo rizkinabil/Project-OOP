@@ -5,10 +5,12 @@
  */
 package BE.Teacher;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Madluke
  */
 public interface LihatTestTaker {
-    public void LihatTestTaker();
+    public void LihatTestTaker(JTable tableTT);
 }

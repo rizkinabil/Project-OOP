@@ -6,12 +6,25 @@
 package marquiz.teacher;
 
 import BE.Teacher.TeacherHome;
+import BE.TestTaker.Questions;
+import connection.connect_db;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Madluke
  */
 public class TambahSoal extends javax.swing.JFrame {
+Connection con = null;
+PreparedStatement pst = null;
+Statement st = null;
+ResultSet rs = null;
 
     /**
      * Creates new form TambahSoal
@@ -19,6 +32,35 @@ public class TambahSoal extends javax.swing.JFrame {
     public TambahSoal() {
         initComponents();
         setLocationRelativeTo(null);
+        fetch();
+    }
+    
+    public void fetch(){
+        try {
+            con = connect_db.getCon();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT count(IdSoal) from question");
+            if(rs.next()){                
+                int idq = rs.getInt(1);
+                idq = idq+1;
+                String str = String.valueOf(idq);               
+                id.setText(str);
+            }else{
+                id.setText("1");
+            }
+        } catch (SQLException e) {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, e);
+        }finally{
+            try {
+                st.close();
+                //ps.close();
+                rs.close();
+            } catch (SQLException e) {
+                
+            }
+        }
     }
 
     /**
@@ -44,8 +86,9 @@ public class TambahSoal extends javax.swing.JFrame {
         opsi_3 = new javax.swing.JTextField();
         opsi_4 = new javax.swing.JTextField();
         jawaban = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        id = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +120,12 @@ public class TambahSoal extends javax.swing.JFrame {
 
         jawaban.setText("jTextField1");
 
-        jButton1.setText("simpan");
+        btnSimpan.setText("simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("kembali");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +134,8 @@ public class TambahSoal extends javax.swing.JFrame {
             }
         });
 
+        id.setText("jLabel9");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +143,6 @@ public class TambahSoal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,19 +151,24 @@ public class TambahSoal extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel2))
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opsi_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opsi_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opsi_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
-                                .addComponent(jButton2)))))
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id)
+                                    .addComponent(jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(opsi_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(opsi_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(opsi_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
@@ -123,7 +177,9 @@ public class TambahSoal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(id))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -150,7 +206,7 @@ public class TambahSoal extends javax.swing.JFrame {
                     .addComponent(jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSimpan)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -163,6 +219,19 @@ public class TambahSoal extends javax.swing.JFrame {
         teacherHome.open=0;
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        String idq = id.getText();
+        String soal = fieldSoal.getText();
+        String op1 = opsi_1.getText();
+        String op2 = opsi_2.getText();
+        String op3 = opsi_3.getText();
+        String op4 = opsi_4.getText();
+        String jaw = jawaban.getText();
+        
+        int int_ID = Integer.parseInt(idq);
+        new Questions(int_ID,soal,op1,op2,op3,op4,jaw).TambahSoal();
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,8 +269,9 @@ public class TambahSoal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JTextField fieldSoal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel id;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

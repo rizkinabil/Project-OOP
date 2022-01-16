@@ -5,6 +5,13 @@
  */
 package marquiz.admin;
 
+import BE.Admin.AdminHome;
+import connection.connect_db;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import marquiz.teacher.*;
 
 /**
@@ -12,13 +19,55 @@ import marquiz.teacher.*;
  * @author Madluke
  */
 public class Pengaturan extends javax.swing.JFrame {
-
+Connection con = null;
+PreparedStatement pst = null;
+ResultSet rs = null;
     /**
      * Creates new form TambahSoal
      */
     public Pengaturan() {
         initComponents();
         setLocationRelativeTo(null);
+        fetch();
+    }
+    
+    public void fetch(){
+       try{
+            con = connect_db.getCon();
+            String sql = "select * from admin";
+             pst = con.prepareStatement(sql);
+             rs = pst.executeQuery();
+            
+            if(rs.next()){                
+                // Name: database name
+                String name = rs.getString(2);
+                fieldNamaA.setText(name);
+                
+                // Username: database username
+                String username = rs.getString(3);
+                fieldUNameA.setText(username);
+                
+                String password = rs.getString(4);
+                fieldPassA.setText(password);
+                
+                // security question: database security question
+                String security = rs.getString(5);
+                fieldSecQ.setText(security);
+                
+                String ans = rs.getString(6);
+                fieldSecA.setText(ans);
+                
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(this,"Something went wrong " + e.getMessage());   
+        } finally{
+           try{
+                rs.close();
+                pst.close();
+           }catch(SQLException e){
+               
+           }
+       }
     }
 
     /**
@@ -34,15 +83,15 @@ public class Pengaturan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        fieldSoal = new javax.swing.JTextField();
-        opsi_1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        fieldNamaA = new javax.swing.JTextField();
+        fieldUNameA = new javax.swing.JTextField();
+        btnSimpan = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        fieldPassA = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        fieldSecQ = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        fieldSecA = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,11 +103,21 @@ public class Pengaturan extends javax.swing.JFrame {
 
         jLabel5.setText("Password");
 
-        fieldSoal.setText(" ");
+        fieldNamaA.setText(" ");
+        fieldNamaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNamaAActionPerformed(evt);
+            }
+        });
 
-        opsi_1.setText("jTextField1");
+        fieldUNameA.setText("jTextField1");
 
-        jButton1.setText("simpan");
+        btnSimpan.setText("simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("kembali");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,15 +126,15 @@ public class Pengaturan extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setText("jPasswordField1");
+        fieldPassA.setText("jPasswordField1");
 
         jLabel6.setText("Security Question");
 
-        jTextField2.setText("jTextField2");
+        fieldSecQ.setText("jTextField2");
 
         jLabel7.setText("Security Answer");
 
-        jTextField3.setText("jTextField3");
+        fieldSecA.setText("jTextField3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,15 +156,15 @@ public class Pengaturan extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnSimpan)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                                         .addComponent(jButton2))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(fieldPassA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fieldUNameA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fieldNamaA, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 307, Short.MAX_VALUE)))))
                         .addGap(104, 104, 104))
                     .addGroup(layout.createSequentialGroup()
@@ -114,8 +173,8 @@ public class Pengaturan extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(jTextField3))
+                            .addComponent(fieldSecQ, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(fieldSecA))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -126,26 +185,26 @@ public class Pengaturan extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldNamaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldUNameA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldPassA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldSecQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldSecA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSimpan)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -158,6 +217,22 @@ public class Pengaturan extends javax.swing.JFrame {
         adminHome.open=0;
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        String Nama_A = fieldNamaA.getText();
+        String UName_A = fieldUNameA.getText();
+        String Pass_A = fieldPassA.getText();
+        String SecQ = fieldSecQ.getText();
+        String SecA = fieldSecA.getText();
+        
+        new AdminHome(1, Nama_A, UName_A, Pass_A).Pengaturan(SecQ, SecA);
+        
+        
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void fieldNamaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNamaAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,8 +277,12 @@ public class Pengaturan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField fieldSoal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JTextField fieldNamaA;
+    private javax.swing.JPasswordField fieldPassA;
+    private javax.swing.JTextField fieldSecA;
+    private javax.swing.JTextField fieldSecQ;
+    private javax.swing.JTextField fieldUNameA;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -211,9 +290,5 @@ public class Pengaturan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField opsi_1;
     // End of variables declaration//GEN-END:variables
 }

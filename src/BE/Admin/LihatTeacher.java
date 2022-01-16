@@ -5,11 +5,13 @@
  */
 package BE.Admin;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Madluke
  */
 
 public interface LihatTeacher {
-    public void LihatTeacher(); 
+    public void LihatTeacher(JTable tableTeacher); 
 }

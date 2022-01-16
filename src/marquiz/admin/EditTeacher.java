@@ -5,20 +5,38 @@
  */
 package marquiz.admin;
 
-import marquiz.teacher.*;
+import BE.Admin.AdminHome;
+import connection.connect_db;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Madluke
  */
 public class EditTeacher extends javax.swing.JFrame {
-
+Connection con = null;
+Statement st = null;
+PreparedStatement ps = null;
+ResultSet rs = null;
     /**
      * Creates new form TambahSoal
      */
     public EditTeacher() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    public void clear(){
+        IdTeacher.setText("");
+        fieldNamaT.setText("");
+        fieldUNameT.setText("");
+        fieldPassT.setText("");
     }
 
     /**
@@ -35,13 +53,13 @@ public class EditTeacher extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        fieldSoal = new javax.swing.JTextField();
-        opsi_1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        fieldNamaT = new javax.swing.JTextField();
+        fieldUNameT = new javax.swing.JTextField();
+        btnSimpan = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        fieldPassT = new javax.swing.JPasswordField();
         IdTeacher = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnCari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,11 +73,16 @@ public class EditTeacher extends javax.swing.JFrame {
 
         jLabel5.setText("Password");
 
-        fieldSoal.setText(" ");
+        fieldNamaT.setText(" ");
 
-        opsi_1.setText("jTextField1");
+        fieldUNameT.setText("jTextField1");
 
-        jButton1.setText("simpan");
+        btnSimpan.setText("simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("kembali");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -68,14 +91,14 @@ public class EditTeacher extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setText("jPasswordField1");
+        fieldPassT.setText("jPasswordField1");
 
         IdTeacher.setText("jTextField1");
 
-        jButton3.setText("Cari");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCariActionPerformed(evt);
             }
         });
 
@@ -98,18 +121,18 @@ public class EditTeacher extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldUNameT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldNamaT, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldPassT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(44, 44, 44)
-                                        .addComponent(jButton3)))
+                                        .addComponent(btnCari)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(104, 104, 104))
         );
@@ -122,22 +145,22 @@ public class EditTeacher extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(btnCari))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldNamaT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldUNameT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldPassT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSimpan)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -151,13 +174,63 @@ public class EditTeacher extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
         String Id_T = IdTeacher.getText();
-        int int_id = Integer.parseInt(Id_T);
+        
+        try {
+            con = connect_db.getCon();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * from teacher where IdTeacher='"+Id_T+"'");
+            if(rs.next()){
+                String nama = rs.getString(2);
+                String username = rs.getString(3);
+                String password = rs.getString(4);
+                
+                fieldNamaT.setText(nama);
+                fieldUNameT.setText(username);
+                fieldPassT.setText(password);
+                
+                IdTeacher.setEditable(false);
+            }else{
+                JFrame jf = new JFrame();
+                jf.setAlwaysOnTop(true);
+                JOptionPane.showMessageDialog(jf, "Teacher ID does not Exist");
+                clear();
+                IdTeacher.setEditable(true);
+                IdTeacher.requestFocus();
+                
+            }  
+        } catch (SQLException e){
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, e.getMessage());   
+        }finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException e) {
+            }
+        }
         
   
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+        String idT = IdTeacher.getText();
+        String namaT = fieldNamaT.getText();
+        String userT = fieldUNameT.getText();
+        String passT = fieldPassT.getText();
+        
+        int int_id = Integer.parseInt(idT);
+        
+        
+        new AdminHome(int_id,namaT,userT,passT).EditTeacher();
+        
+        
+        this.dispose();
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,16 +272,16 @@ public class EditTeacher extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IdTeacher;
-    private javax.swing.JTextField fieldSoal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JTextField fieldNamaT;
+    private javax.swing.JPasswordField fieldPassT;
+    private javax.swing.JTextField fieldUNameT;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField opsi_1;
     // End of variables declaration//GEN-END:variables
 }

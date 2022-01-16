@@ -5,11 +5,15 @@
  */
 package BE.Teacher;
 
+import BE.TestTaker.Questions;
+import javax.swing.JTable;
+
 /**
  *
  * @author Madluke
  */
 public interface LihatSoal {
-    public void LihatSoal();
+    public void LihatSoal(JTable tableSoal);
+        
     
 }

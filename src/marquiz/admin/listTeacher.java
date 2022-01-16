@@ -5,6 +5,7 @@
  */
 package marquiz.admin;
 
+import BE.Admin.AdminHome;
 import marquiz.teacher.*;
 
 /**
@@ -19,6 +20,13 @@ public class listTeacher extends javax.swing.JFrame {
     public listTeacher() {
         initComponents();
         setLocationRelativeTo(null);
+        fetch();
+    }
+    
+    public void fetch(){
+//        String a = ,b,c;
+//        int id;
+        new AdminHome(1, "a", "b", "c").LihatTeacher(tableTeacher);
     }
 
     /**
@@ -32,35 +40,35 @@ public class listTeacher extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableTeacher = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("List Teacher");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableTeacher.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Soal", "Opsi 1", "Opsi 2", "Opsi 3", "Opsi 4", "Jawaban"
+                "ID", "Nama", "Username", "Password"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
+        jScrollPane4.setViewportView(tableTeacher);
+        if (tableTeacher.getColumnModel().getColumnCount() > 0) {
+            tableTeacher.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
 
         jButton1.setText("Kembali");
@@ -144,6 +152,6 @@ public class listTeacher extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableTeacher;
     // End of variables declaration//GEN-END:variables
 }

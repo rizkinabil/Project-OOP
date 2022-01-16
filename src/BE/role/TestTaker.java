@@ -5,11 +5,21 @@
  */
 package BE.role;
 
+import connection.connect_db;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Madluke
  */
 public class TestTaker extends User{
+Connection con = null;
+PreparedStatement ps = null;
+ResultSet rs = null;
+
     private int IdTestTaker;
     private String Nama, JenisKelamin, Email;
 
@@ -54,5 +64,28 @@ public class TestTaker extends User{
         this.Email = Email;
     }
     
-    
+    public void SimpanTest(){
+        try {
+            con = connect_db.getCon();
+            ps = con.prepareStatement("insert into testtaker values(?,?,?,?,?)");
+            ps.setInt(1, IdTestTaker);
+            ps.setString(2, Nama);
+            ps.setString(3, JenisKelamin);
+            ps.setString(4, Email);
+            ps.setInt(5, 0 );
+            
+            ps.execute();
+
+        }catch (SQLException e) {
+            
+        }finally{
+            try {
+                ps.close();
+                
+                
+            } catch(SQLException e){
+                
+            }
+        }
+    }
 }

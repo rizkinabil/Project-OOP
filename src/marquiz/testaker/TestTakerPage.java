@@ -5,6 +5,7 @@
  */
 package marquiz.testaker;
 
+import BE.role.TestTaker;
 import marquiz.UserView;
 
 /**
@@ -140,7 +141,17 @@ public class TestTakerPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String Id_TT = IdTestTaker.getText();
+        String Nama_TT = NamaTestTaker.getText();
+        String JKelamin_TT = kelamin.getSelectedItem().toString();
+        String Email_TT = Email.getText();
+        String Role = "Test Taker";
+        
+        int Id_int = Integer.parseInt(Id_TT);
+        
+        new TestTaker(Id_int, Nama_TT, JKelamin_TT, Email_TT, Role).SimpanTest();
+        
+                
         TestInstruction page = new TestInstruction();
         page.setVisible(true);
         this.dispose();

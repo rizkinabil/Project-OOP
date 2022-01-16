@@ -10,6 +10,6 @@ package BE.Admin;
  * @author Madluke
  */
 public interface Pengaturan {
-    public void Pengaturan();
+    public void Pengaturan(String SecQ, String SecA);
     
 }

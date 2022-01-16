@@ -157,7 +157,8 @@ public class TambahTeacher extends javax.swing.JFrame {
         new AdminHome(int_ID, Nama_T, User_T, Pass_T).TambahTeacher();
         
         
-        this.dispose();
+        adminHome.open=0;
+        setVisible(false);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

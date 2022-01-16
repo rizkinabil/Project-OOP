@@ -5,12 +5,25 @@
  */
 package marquiz.teacher;
 
+import BE.TestTaker.Questions;
+import connection.connect_db;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Madluke
  */
 public class EditSoal extends javax.swing.JFrame {
-
+Connection con = null;
+PreparedStatement pst = null;
+Statement st = null;
+ResultSet rs = null;
     /**
      * Creates new form TambahSoal
      */
@@ -41,10 +54,10 @@ public class EditSoal extends javax.swing.JFrame {
         opsi_2 = new javax.swing.JTextField();
         opsi_3 = new javax.swing.JTextField();
         opsi_4 = new javax.swing.JTextField();
-        jawaban = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Jawaban = new javax.swing.JTextField();
+        btnSimpan = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnCariId = new javax.swing.JButton();
         idSoal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,12 +88,12 @@ public class EditSoal extends javax.swing.JFrame {
 
         opsi_4.setText("jTextField1");
 
-        jawaban.setText("jTextField1");
+        Jawaban.setText("jTextField1");
 
-        jButton1.setText("simpan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setText("simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
@@ -91,7 +104,12 @@ public class EditSoal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("cari");
+        btnCariId.setText("cari");
+        btnCariId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariIdActionPerformed(evt);
+            }
+        });
 
         idSoal.setText("jTextField1");
 
@@ -112,14 +130,14 @@ public class EditSoal extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(opsi_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(opsi_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(opsi_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(opsi_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                                 .addComponent(jButton2))))
                     .addGroup(layout.createSequentialGroup()
@@ -129,7 +147,7 @@ public class EditSoal extends javax.swing.JFrame {
                                 .addGap(54, 54, 54)
                                 .addComponent(idSoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(185, 185, 185)
-                                .addComponent(jButton3))
+                                .addComponent(btnCariId))
                             .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(104, 104, 104))
@@ -142,7 +160,7 @@ public class EditSoal extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3)
+                    .addComponent(btnCariId)
                     .addComponent(idSoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -167,10 +185,10 @@ public class EditSoal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Jawaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSimpan)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -184,9 +202,62 @@ public class EditSoal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        String idq = idSoal.getText();
+        String soal = fieldSoal.getText();
+        String op1 = opsi_1.getText();
+        String op2 = opsi_2.getText();
+        String op3 = opsi_3.getText();
+        String op4 = opsi_4.getText();
+        String jaw = Jawaban.getText();
+        
+        int int_ID = Integer.parseInt(idq);
+        new Questions(int_ID,soal,op1,op2,op3,op4,jaw).EditSoal();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnCariIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariIdActionPerformed
+        String id = idSoal.getText();
+        
+        try {
+            con = connect_db.getCon();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * from question where IdSoal='"+id+"'");
+            if(rs.next()){
+                String soal = rs.getString(2);
+                String opsi1 = rs.getString(3);
+                String opsi2 = rs.getString(4);
+                String opsi3 = rs.getString(5);
+                String opsi4 = rs.getString(6);
+                String jawaban = rs.getString(7);
+                
+                fieldSoal.setText(soal);
+                opsi_1.setText(opsi1);
+                opsi_2.setText(opsi2);
+                opsi_3.setText(opsi3);
+                opsi_4.setText(opsi4);
+                Jawaban.setText(jawaban);
+                
+                idSoal.setEditable(false);
+            }else{
+                JFrame jf = new JFrame();
+                jf.setAlwaysOnTop(true);
+                JOptionPane.showMessageDialog(jf, "Id Soal tidak ada");
+                idSoal.setEditable(true);
+                idSoal.requestFocus();
+                
+            }  
+        } catch (SQLException e){
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, e.getMessage());   
+        }finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException e) {
+            }
+        }
+    }//GEN-LAST:event_btnCariIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,11 +296,12 @@ public class EditSoal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Jawaban;
+    private javax.swing.JButton btnCariId;
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JTextField fieldSoal;
     private javax.swing.JTextField idSoal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,7 +310,6 @@ public class EditSoal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jawaban;
     private javax.swing.JTextField opsi_1;
     private javax.swing.JTextField opsi_2;
     private javax.swing.JTextField opsi_3;

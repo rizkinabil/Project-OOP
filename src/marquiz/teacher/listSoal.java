@@ -5,6 +5,8 @@
  */
 package marquiz.teacher;
 
+import BE.Teacher.TeacherHome;
+
 /**
  *
  * @author Madluke
@@ -17,6 +19,14 @@ public class listSoal extends javax.swing.JFrame {
     public listSoal() {
         initComponents();
         setLocationRelativeTo(null);
+        fetch();
+    }
+    
+    public void fetch(){
+        
+        new TeacherHome(1, "a", "b", "c").LihatSoal(tableSoal);
+
+        
     }
 
     /**
@@ -30,14 +40,14 @@ public class listSoal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableSoal = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("List Soal");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableSoal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -56,9 +66,9 @@ public class listSoal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
+        jScrollPane4.setViewportView(tableSoal);
+        if (tableSoal.getColumnModel().getColumnCount() > 0) {
+            tableSoal.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
 
         jButton1.setText("Kembali");
@@ -141,6 +151,6 @@ public class listSoal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableSoal;
     // End of variables declaration//GEN-END:variables
 }
