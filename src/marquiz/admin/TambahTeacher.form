@@ -45,11 +45,11 @@
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="userNameT" min="-2" max="-2" attributes="0"/>
-                                  <Component id="namaTeacher" min="-2" pref="242" max="-2" attributes="0"/>
-                                  <Component id="passT" min="-2" max="-2" attributes="0"/>
-                                  <Component id="IdTeacher" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="namaTeacher" pref="242" max="32767" attributes="0"/>
+                                  <Component id="IdTeacher" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="userNameT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="passT" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -127,9 +127,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="userNameT">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -148,14 +145,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="passT">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IdTeacher">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

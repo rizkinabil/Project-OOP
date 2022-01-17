@@ -45,15 +45,15 @@
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fieldUNameT" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldNamaT" min="-2" pref="242" max="-2" attributes="0"/>
-                                  <Component id="fieldPassT" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="fieldNamaT" pref="242" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="IdTeacher" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Component id="IdTeacher" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnCariID" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="fieldUNameT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldPassT" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -132,9 +132,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldUNameT">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelTeacher">
       <Properties>
@@ -153,14 +150,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="fieldPassT">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="IdTeacher">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCariID">
       <Properties>

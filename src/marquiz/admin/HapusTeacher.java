@@ -77,8 +77,6 @@ ResultSet rs = null;
 
         fieldNamaT.setText(" ");
 
-        fieldUNameT.setText("jTextField1");
-
         btnDelTeacher.setText("Hapus");
         btnDelTeacher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,10 +90,6 @@ ResultSet rs = null;
                 jButton2ActionPerformed(evt);
             }
         });
-
-        fieldPassT.setText("jPasswordField1");
-
-        IdTeacher.setText("jTextField1");
 
         btnCariID.setText("Cari");
         btnCariID.addActionListener(new java.awt.event.ActionListener() {
@@ -127,14 +121,14 @@ ResultSet rs = null;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 445, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fieldUNameT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldNamaT, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldPassT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fieldNamaT, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(btnCariID)))
+                                        .addComponent(IdTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(btnCariID))
+                                    .addComponent(fieldUNameT)
+                                    .addComponent(fieldPassT))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(104, 104, 104))
         );

@@ -110,7 +110,7 @@ ResultSet rs = null;
             }
         });
 
-        fieldUNameA.setText("jTextField1");
+        fieldUNameA.setText(" ");
 
         btnSimpan.setText("simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -126,15 +126,9 @@ ResultSet rs = null;
             }
         });
 
-        fieldPassA.setText("jPasswordField1");
-
         jLabel6.setText("Security Question");
 
-        fieldSecQ.setText("jTextField2");
-
         jLabel7.setText("Security Answer");
-
-        fieldSecA.setText("jTextField3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,10 +155,10 @@ ResultSet rs = null;
                                         .addComponent(jButton2))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fieldPassA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldUNameA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldNamaA, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(fieldNamaA, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                                            .addComponent(fieldUNameA)
+                                            .addComponent(fieldPassA))
                                         .addGap(0, 307, Short.MAX_VALUE)))))
                         .addGap(104, 104, 104))
                     .addGroup(layout.createSequentialGroup()
@@ -173,7 +167,7 @@ ResultSet rs = null;
                             .addComponent(jLabel7))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fieldSecQ, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(fieldSecQ, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                             .addComponent(fieldSecA))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
