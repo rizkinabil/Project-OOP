@@ -33,16 +33,19 @@ public class teacherHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnTambahSoal = new javax.swing.JButton();
         btnEditSoal = new javax.swing.JButton();
         btnDelSoal = new javax.swing.JButton();
         btnListSoal = new javax.swing.JButton();
         btnListTestTaker = new javax.swing.JButton();
         btnSignOut = new javax.swing.JButton();
-        btnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(222, 249, 255));
+
+        btnTambahSoal.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnTambahSoal.setText("tambah soal");
         btnTambahSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +53,7 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
+        btnEditSoal.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnEditSoal.setText("update soal");
         btnEditSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +61,7 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
+        btnDelSoal.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnDelSoal.setText("hapus soal");
         btnDelSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +69,7 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
+        btnListSoal.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnListSoal.setText("lihat semua soal");
         btnListSoal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +77,7 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
+        btnListTestTaker.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnListTestTaker.setText("lihat test taker");
         btnListTestTaker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +85,7 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
+        btnSignOut.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnSignOut.setText("keluar");
         btnSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,37 +93,28 @@ public class teacherHome extends javax.swing.JFrame {
             }
         });
 
-        btnKembali.setText("kembali");
-        btnKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKembaliActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnTambahSoal)
-                    .addComponent(btnEditSoal)
-                    .addComponent(btnDelSoal)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnListSoal)
-                    .addComponent(btnListTestTaker))
-                .addContainerGap(133, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(btnListTestTaker)
+                    .addComponent(btnDelSoal)
+                    .addComponent(btnEditSoal)
+                    .addComponent(btnTambahSoal))
+                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnKembali)
-                .addGap(18, 18, 18)
                 .addComponent(btnSignOut)
                 .addGap(21, 21, 21))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addComponent(btnTambahSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditSoal)
@@ -125,11 +124,20 @@ public class teacherHome extends javax.swing.JFrame {
                 .addComponent(btnListSoal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListTestTaker)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSignOut)
-                    .addComponent(btnKembali))
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(btnSignOut)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -193,13 +201,6 @@ public class teacherHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnListTestTakerActionPerformed
 
-    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
-        // TODO add your handling code here:
-        LoginTeacher page = new LoginTeacher();
-        page.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnKembaliActionPerformed
-
     private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
         JFrame jf = new JFrame();
@@ -251,10 +252,10 @@ public class teacherHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelSoal;
     private javax.swing.JButton btnEditSoal;
-    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnListSoal;
     private javax.swing.JButton btnListTestTaker;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JButton btnTambahSoal;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
